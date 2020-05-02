@@ -1,4 +1,4 @@
-# estudo-vuetify
+# vue4noobs
 
 ## Project setup
 ```
