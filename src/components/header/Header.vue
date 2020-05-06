@@ -13,7 +13,7 @@
                  <v-list-item
                    v-for="({ title, href }, index) in itemsList"
                    :key="index"
-                   @click="() => {}"
+                   @click="redirect(href)"
                  >
                    <v-list-item-title>{{ title }}</v-list-item-title>
                  </v-list-item>
@@ -28,13 +28,18 @@ export default {
   data() {
     return {
       itemsList: [
-        { title: 'Registrar', href: '' },
-        { title: 'Entrar', href: '' },
+        { title: 'Registrar', href: '/register' },
+        { title: 'Entrar', href: '/login' },
       ],
     };
   },
   props: {
     title: String,
+  },
+  methods: {
+    redirect(href) {
+      this.$router.push(href);
+    },
   },
 };
 </script>
