@@ -5,6 +5,7 @@ import Login from './pages/Login.vue';
 import Dashboard from './pages/Dashboard.vue';
 
 import DashboardHome from './components/dashboard/DashboardHome.vue';
+import DashboardInbox from './components/dashboard/DashboardInbox.vue';
 
 const authenticated = (to, from, next) => {
   if (localStorage.getItem('authenticated')) {
@@ -40,6 +41,10 @@ export default [
       {
         path: '/',
         component: DashboardHome,
+      },
+      {
+        path: '/dashboard/inbox',
+        component: DashboardInbox,
       },
     ],
   },

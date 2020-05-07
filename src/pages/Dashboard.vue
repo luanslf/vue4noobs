@@ -35,7 +35,9 @@
           </v-card>
         </v-col>
         <v-col cols="9" overflow>
-          <router-view />
+          <transition name="router" mode="out-in">
+            <router-view></router-view>
+          </transition>
         </v-col>
       </v-row>
     </section>
@@ -93,3 +95,20 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .router-enter-active {
+    animation: enter-and-leave 0.15s;
+  }
+  .router-leave-active {
+    animation: enter-and-leave 0.15s reverse;
+  }
+  @keyframes enter-and-leave {
+    0% {
+      transform: scale(1.3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
