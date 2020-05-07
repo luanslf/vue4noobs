@@ -6,6 +6,16 @@
 
 <script>
 export default {
+  mounted() {
+    const id = localStorage.getItem('id');
+    this.$http.get('/users', { headers: id })
+      .then((res) => {
+        this.$store.dispatch('user', res.data());
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  },
 };
 </script>
 

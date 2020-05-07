@@ -11,7 +11,8 @@
             <v-list class="py-0">
               <v-list-item>
                 <v-list-item-content>
-                  <v-list-item-title>Olá, {{ login }}!</v-list-item-title>
+                  <v-list-item-title> {{ welcomeUser }} </v-list-item-title>
+                  <!--<v-list-item-title>Olá, {{ user.login }}!</v-list-item-title>-->
                   <v-list-item-subtitle>Drawer</v-list-item-subtitle>
                 </v-list-item-content>
               </v-list-item>
@@ -45,11 +46,19 @@
 </template>
 
 <script>
+
+// import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Dashboard',
+  computed: {
+    ...mapGetters(['welcomeUser']),
+    // ...mapState(['user']),
+  },
   data() {
     return {
-      login: '',
+      // login: '',
       items: [
         {
           titulo: 'Dashboard',

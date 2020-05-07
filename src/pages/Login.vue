@@ -74,11 +74,18 @@ export default {
   },
   methods: {
     sendForm() {
-      localStorage.setItem('loginForm', JSON.stringify({
+      /* localStorage.setItem('loginForm', JSON.stringify({
         login: this.login,
         password: this.password,
-      }));
+      })); */
       localStorage.setItem('authenticated', true);
+      this.$store.dispatch(
+        'authenticatedUser',
+        {
+          login: this.login,
+          password: this.password,
+        },
+      );
       this.$router.push('/dashboard');
     },
   },
