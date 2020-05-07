@@ -78,8 +78,7 @@ export default {
         login: this.login,
         password: this.password,
       }));
-      console.log('Tudo certo!');
-      console.log(JSON.parse(localStorage.getItem('loginForm')));
+      localStorage.setItem('authenticated', true);
       this.$router.push('/dashboard');
     },
   },
